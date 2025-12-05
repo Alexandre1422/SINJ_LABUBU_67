@@ -1,51 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Annoying Phone Input – Limbo Key Edition</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINJ_LABUBU - Ad-blocker Limbo Phone Game</title>
+
+    <link rel="stylesheet" href="../background.css">
+    <link rel="stylesheet" href="../chatbot.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="game-page">
 
-  <!-- Top bar with centered timer -->
-  <div class="top-bar">
-    <div class="top-bar-left"></div>
+    <nav class="navbar">
+        <div class="nav-title">SINJ_LABUBU</div>
+        <div class="nav-links">
+            <a href="../index.html">Accueil</a>
+            <a href="main.html">Formulaire</a>
+            <a href="../github.html">Nos Githubs</a>
+            <a href="../web_condom.html">Ad-blocker</a>
+        </div>
+        <img id="chat-icon" src="image/blue.png" alt="Ouvrir le chat" class="chat-icon">
+    </nav>
 
-    <div class="top-bar-center">
-      ⏱️ <span id="timer-value">0.0</span>s
+    <div class="top-bar">
+        <div class="top-bar-left"></div>
+
+        <div class="top-bar-center">
+            <span id="timer-value">0.0</span>s
+        </div>
+
+        <div class="top-bar-right">
+            <button id="reset-btn" type="button">Reset</button>
+        </div>
     </div>
 
-    <div class="top-bar-right">
-      <button id="reset-btn" type="button">Reset</button>
-    </div>
-  </div>
+    <div class="wrapper">
+        <h1>Enter Your Phone Number</h1>
+        <p>
+            Catch the green box, type a digit, do it 10 times,<br />
+            then track the right Validate key before the bomb explodes. 🙂
+        </p>
 
-  <!-- Main content -->
-  <div class="wrapper">
-    <h1>Enter Your Phone Number</h1>
-    <p>
-      Catch the green box, type a digit, do it 10 times,<br />
-      then track the right Validate key before the bomb explodes. 🙂
-    </p>
+        <div class="digits" id="digits-container">
+            <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
+            <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
+            <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
+            <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
+            <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
+            <span class="digit-gap"></span>
+            <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
+            <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
+            <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
+            <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
+            <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
+        </div>
 
-    <!-- Inputs live here in the DOM but fly around the screen -->
-    <div class="digits" id="digits-container">
-      <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
-      <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
-      <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
-      <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
-      <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
-      <span class="digit-gap"></span>
-      <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
-      <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
-      <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
-      <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
-      <input class="digit-input" maxlength="1" inputmode="numeric" autocomplete="off" />
+        <div class="result" id="result"></div>
     </div>
 
-    <div class="result" id="result"></div>
-  </div>
+    <script src="../background.js"></script>
+    <script src="../interactivity.js"></script>
+    <script src="../chatbot.js"></script>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

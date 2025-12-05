@@ -2,22 +2,25 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #111827;
+/* Dark background ONLY for this page */
+body.game-page {
+  background: #0b1120 !important;
   color: #e5e7eb;
-  overflow: hidden;
 }
 
-/* TOP BAR with CENTERED TIMER */
-.top-bar {
+/* Make sure navbar stays above the game top bar */
+.navbar {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+/* TOP BAR with CENTERED TIMER – now under the navbar */
+.top-bar {
+  position: fixed;
+  top: 85px; /* leave space for SINJ navbar (adjust if needed) */
   left: 0;
   right: 0;
   height: 52px;
@@ -28,7 +31,7 @@ body {
   background: linear-gradient(to right, #020617dd, #111827ee, #020617dd);
   border-bottom: 1px solid #1f2933;
   backdrop-filter: blur(10px);
-  z-index: 10;
+  z-index: 90; /* below navbar, above rest */
 }
 
 .top-bar-left {
@@ -70,7 +73,7 @@ body {
   transform: translateY(-1px);
 }
 
-/* Main card */
+/* Main game card */
 .wrapper {
   text-align: center;
   padding: 2rem 2.5rem;
@@ -81,7 +84,10 @@ body {
   position: relative;
   max-width: 420px;
   width: 90%;
-  margin-top: 90px;
+
+  /* push below navbar + top bar */
+  margin: 195px auto 120px;
+  z-index: 1;
 }
 
 h1 {
@@ -97,11 +103,12 @@ p {
   color: #9ca3af;
 }
 
-/* Invisible container */
+/* Invisible container for inputs (they are fixed on the viewport) */
 .digits {
   position: relative;
   width: 0;
   height: 0;
+  z-index: 10000000;
 }
 
 .digit-gap {
@@ -120,7 +127,7 @@ p {
   color: #e5e7eb;
   outline: none;
   position: fixed;
-  z-index: 2;
+  z-index: 10020; /* above navbar, chat, etc. */
   transition:
     left 0.35s ease,
     top 0.35s ease,
@@ -184,7 +191,7 @@ p {
   color: #a7f3d0;
   cursor: pointer;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
-  z-index: 3;
+  z-index: 10025; /* slightly above digit inputs */
   transition:
     left 0.4s ease,
     top 0.4s ease,
@@ -193,15 +200,6 @@ p {
     background 0.15s,
     color 0.15s;
 }
-
-.validate-btn.validate-preflash {
-  border-color: #ef4444;
-  box-shadow:
-    0 0 10px rgba(239, 68, 68, 0.9),
-    0 0 25px rgba(239, 68, 68, 0.7);
-  color: #fee2e2;
-}
-
 
 .validate-btn:hover {
   background: #065f46;
@@ -212,16 +210,16 @@ p {
   transform: translateY(1px);
 }
 
-.validate-btn.correct-hint {
-  border-color: #22c55e;
-  color: #ffffff;
+/* Red pre-flash for the real validate key before the dance */
+.validate-btn.validate-preflash {
+  border-color: #ef4444;
   box-shadow:
-    0 0 10px rgba(34, 197, 94, 0.8),
-    0 0 25px rgba(34, 197, 94, 0.6);
+    0 0 10px rgba(239, 68, 68, 0.9),
+    0 0 25px rgba(239, 68, 68, 0.7);
+  color: #fee2e2;
 }
 
 /* CONFIRM YES/NO BUTTONS */
-
 .confirm-btn {
   position: fixed;
   padding: 0.45rem 1.2rem;
@@ -231,7 +229,7 @@ p {
   background: #020617;
   color: #e5e7eb;
   cursor: pointer;
-  z-index: 4;
+  z-index: 10030; /* highest layer */
   transition:
     left 0.4s ease,
     top 0.4s ease,
@@ -249,7 +247,6 @@ p {
   transform: translateY(1px);
 }
 
-/* Yes: green-ish */
 .confirm-yes {
   border-color: #15803d;
   background: #166534;
@@ -260,7 +257,6 @@ p {
   background: #15803d;
 }
 
-/* No: red-ish */
 .confirm-no {
   border-color: #b91c1c;
   background: #7f1d1d;
