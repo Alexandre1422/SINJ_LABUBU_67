@@ -102,7 +102,7 @@
 
 /* Style de l'icône de chat (image à l'extrémité droite) */
 .chat-icon {
-    width: 60px; /* Taille de l'image */
+    width: auto; /* Taille de l'image */
     height: 60px;
     cursor: pointer; /* Indique que l'élément est cliquable */
     margin-left: 20px; /* Pour séparer l'image des autres liens */
