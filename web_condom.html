@@ -3,62 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SINJ_LABUBU – Platon Cleaner</title>
+    <title>SINJ_LABUBU – Web Condom</title>
 
     <link rel="stylesheet" href="background.css">
     <link rel="stylesheet" href="style-middle-image.css">
     <link rel="stylesheet" href="chatbot.css">
 
     <style>
-        main.platon-page {
-            max-width: 900px;
-            margin: 80px auto 40px auto;
-            padding: 20px;
-            background: rgba(255,255,255,0.9);
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        .platon-title {
-            font-size: 2rem;
-            margin-bottom: 0.25rem;
+        main.page-platon {
+            max-width: 900px;
+            margin: 100px auto 60px auto;
+            padding: 0 16px;
+            color: #111;
         }
 
-        .platon-subtitle {
-            color: #555;
-            margin-bottom: 1.5rem;
+        .intro {
+            margin-bottom: 32px;
         }
 
-        .platon-section {
-            margin-top: 2rem;
+        .intro h1 {
+            font-size: 2.2rem;
+            margin: 0 0 8px 0;
+            text-align: left;
         }
 
-        .platon-section h2 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+        .intro p {
+            margin: 0;
+            max-width: 640px;
         }
 
-        .platon-section h3 {
-            font-size: 1.05rem;
-            margin-top: 1rem;
-            margin-bottom: 0.25rem;
+        .section {
+            margin-top: 32px;
+            max-width: 720px;
         }
 
-        .btn-download {
+        .section h2 {
+            font-size: 1.35rem;
+            margin-bottom: 8px;
+        }
+
+        .section p {
+            margin: 4px 0 10px 0;
+        }
+
+        .section ul,
+        .section ol {
+            margin: 4px 0 0 0;
+            padding-left: 1.2rem;
+        }
+
+        /* NOUVEAU BOUTON AMÉLIORÉ */
+        .download-block {
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .download-button {
             display: inline-block;
-            padding: 10px 18px;
-            border-radius: 8px;
-            background: #36016c;
+            padding: 12px 28px;
+            border-radius: 10px;
+            background: #5b2cc5;
             color: #fff;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            font-size: 1rem;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+            transition: 0.2s;
         }
 
-        .btn-download:hover {
-            background: #4a0394;
+        .download-button:hover {
+            background: #4b20a7;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+        }
+
+        .highlight {
+            font-weight: 600;
         }
 
         code {
@@ -76,19 +101,16 @@
             font-size: 0.9em;
         }
 
-        ul, ol {
-            padding-left: 1.2rem;
-        }
-
         @media (max-width: 768px) {
-            main.platon-page {
-                margin: 90px 12px 40px 12px;
-                padding: 16px;
+            main.page-platon {
+                margin-top: 90px;
             }
         }
     </style>
 </head>
 <body>
+
+    <!-- Navbar dynamique -->
     <nav class="navbar">
         <div class="nav-title">SINJ_LABUBU</div>
         <div class="nav-links">
@@ -100,104 +122,98 @@
         <img id="chat-icon" src="image/blue.png" alt="Ouvrir le chat" class="chat-icon">
     </nav>
 
-    <main class="platon-page">
-        <header>
-            <h1 class="platon-title">Platon Cleaner</h1>
-            <p class="platon-subtitle">
-                Extension de navigateur qui permet de nettoyer le web comme VOUS l'entendez :
-                masquer les éléments gênants, agrandir le contenu important et mémoriser vos préférences par site.
-            </p>
-        </header>
-
-        <section class="platon-section" id="download">
-            <h2>📦 Télécharger l'extension</h2>
-            <p>Téléchargez le ZIP de l'extension Platon Cleaner :</p>
-            <a href="platon-cleaner.zip" download class="btn-download">
-                📥 Télécharger Platon Cleaner (ZIP)
-            </a>
-        </section>
-
-        <section class="platon-section" id="install">
-            <h2>🛠️ Installation (Chrome / Edge / Brave)</h2>
-            <ol>
-                <li>Téléchargez le fichier <code>platon-cleaner.zip</code> ci-dessus.</li>
-                <li>Décompressez-le : vous obtenez un dossier <code>platon-cleaner</code>.</li>
-                <li>Ouvrez votre navigateur (Chrome / Edge / Brave).</li>
-                <li>Dans la barre d'adresse, saisissez <code>chrome://extensions</code>.</li>
-                <li>Activez le <strong>Mode développeur</strong> (en haut à droite).</li>
-                <li>Cliquez sur <strong>"Charger l'extension non empaquetée"</strong>.</li>
-                <li>Sélectionnez le dossier <code>platon-cleaner</code> décompressé.</li>
-            </ol>
-            <p>L'icône <strong>Platon Cleaner</strong> apparaît alors dans la barre d'outils du navigateur.</p>
-        </section>
-
-        <section class="platon-section" id="usage">
-            <h2>📘 Comment utiliser Platon Cleaner</h2>
-
-            <h3>1. Activer le mode nettoyage</h3>
-            <ul>
-                <li>Cliquez sur l'icône <strong>Platon Cleaner</strong> dans la barre du navigateur.</li>
-                <li>Dans la popup, cliquez sur <strong>"Activer le mode nettoyage"</strong>.</li>
-            </ul>
-
-            <h3>2. Nettoyer une page</h3>
-            <ul>
-                <li>Survolez un élément de la page : il est encadré en rouge.</li>
-                <li><strong>Clic gauche</strong> → l'élément est <strong>masqué</strong> et cette règle est mémorisée pour le site.</li>
-                <li><strong>Shift + clic</strong> → l'élément est <strong>agrandi</strong> (plus large, plus lisible) et cette règle est aussi mémorisée.</li>
-                <li>Les règles sont <strong>ré-appliquées automatiquement</strong> à chaque visite sur le même site.</li>
-            </ul>
-
-            <h3>3. Mode Avant / Après</h3>
-            <ul>
-                <li>Un badge "Platon Cleaner" apparaît en bas à droite de la page.</li>
-                <li><strong>Avant</strong> → ré-affiche tous les éléments masqués.</li>
-                <li><strong>Après</strong> → remasque les éléments cachés.</li>
-                <li><strong>Fermer</strong> → masque le badge (les règles restent actives).</li>
-            </ul>
-
-            <h3>4. Désactiver temporairement le nettoyage</h3>
-            <ul>
-                <li>Depuis la popup, bouton <strong>"Désactiver sur ce site"</strong> :
-                    suspend le nettoyage uniquement sur le domaine courant.</li>
-                <li>Bouton <strong>"Activer / désactiver globalement"</strong> :
-                    active/désactive le nettoyage sur tout le web sans supprimer les règles.</li>
-            </ul>
-
-            <h3>5. Gérer les sites nettoyés</h3>
-            <ul>
-                <li>Dans la popup, bouton <strong>"Panneau de gestion"</strong> :</li>
-                <li>Affiche la liste des sites nettoyés et le nombre d'éléments masqués.</li>
-                <li>Permet de <strong>réinitialiser un site</strong> ou de <strong>tout réinitialiser</strong>.</li>
-            </ul>
-        </section>
-
-        <section class="platon-section" id="readme">
-            <h2>📄 Documentation (README)</h2>
+    <main class="page-platon">
+        <section class="intro">
+            <h1>Web Condom</h1>
             <p>
-                Platon Cleaner a été développé dans le cadre du défi
-                <strong>Platon Formation – Nuit de l'Info 2025</strong> autour du thème :
-                <em>"Nettoyez le web comme VOUS l'entendez !"</em>
+                Web Condom est une extension de navigateur réalisée pendant la Nuit de l'Info.
+                L'objectif : reprendre le contrôle sur l'affichage des sites que l'on visite tous les jours,
+                en supprimant ce qui gêne et en mettant en avant ce qui est utile.
+            </p>
+        </section>
+
+        <section class="section" id="presentation">
+            <h2>Ce que fait l'extension</h2>
+            <p>Une fois installée, l'extension permet de :</p>
+            <ul>
+                <li>masquer des zones de la page (bannières, blocs latéraux, sections inutiles) ;</li>
+                <li>agrandir le contenu important ;</li>
+                <li>mémoriser ces choix automatiquement par site ;</li>
+                <li>mettre en pause le nettoyage pour un site ou pour tout le navigateur ;</li>
+                <li>voir la différence entre la page originale et la page nettoyée.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="download">
+            <h2>Télécharger l'extension</h2>
+            <p>
+                L'extension est fournie sous forme d'archive ZIP contenant le dossier à charger dans Chrome.
             </p>
 
-            <h3>Résumé des fonctionnalités</h3>
+            <div class="download-block">
+                <a href="nettoyer_le_web.zip" download class="download-button">
+                    Télécharger Web Condom
+                </a>
+            </div>
+        </section>
+
+        <section class="section" id="install">
+            <h2>Installation (Chrome / Edge / Brave)</h2>
+            <ol>
+                <li>Télécharger le fichier <span class="highlight">platon-cleaner.zip</span>.</li>
+                <li>Décompresser l'archive pour obtenir le dossier <span class="highlight">platon-cleaner</span>.</li>
+                <li>Ouvrir le navigateur et aller sur <span class="highlight">chrome://extensions</span>.</li>
+                <li>Activer le <span class="highlight">mode développeur</span> (en haut à droite).</li>
+                <li>Cliquer sur <span class="highlight">« Charger l'extension non empaquetée »</span>.</li>
+                <li>Sélectionner le dossier <span class="highlight">platon-cleaner</span>.</li>
+            </ol>
+        </section>
+
+        <section class="section" id="usage">
+            <h2>Utilisation rapide</h2>
+
+            <p class="highlight">1. Activer le mode nettoyage</p>
+            <p>
+                Cliquer sur l'icône Platon Cleaner puis sur « Activer le mode nettoyage ».
+            </p>
+
+            <p class="highlight">2. Masquer et agrandir des éléments</p>
             <ul>
-                <li>Masquer des éléments de page (bannières, pubs, sidebars…)</li>
-                <li>Agrandir des blocs importants (contenu principal, lecteur vidéo…)</li>
-                <li>Nettoyage persistant par site (règles sauvegardées dans <code>chrome.storage.local</code>).</li>
-                <li>Compatibilité avec les sites dynamiques (YouTube, Gmail, etc.).</li>
-                <li>Mode Avant / Après et désactivation temporaire.</li>
-                <li>Panneau de gestion des sites nettoyés.</li>
+                <li>Survoler un élément pour afficher son contour rouge ;</li>
+                <li>Clic normal → l'élément est masqué ;</li>
+                <li>Shift + clic → l'élément est agrandi.</li>
             </ul>
 
-            <h3>Technologies utilisées</h3>
-            <ul>
-                <li>JavaScript (Vanilla)</li>
-                <li>Chrome Extensions API (Manifest V3)</li>
-                <li><code>chrome.storage.local</code> pour les règles persistantes</li>
-                <li>MutationObserver pour suivre les changements de DOM</li>
-                <li>HTML &amp; CSS natifs</li>
-            </ul>
+            <p class="highlight">3. Avant / après</p>
+            <p>
+                Un petit panneau en bas de l'écran permet de comparer la page originale et la page nettoyée.
+            </p>
+
+            <p class="highlight">4. Gestion des sites</p>
+            <p>
+                Depuis la popup, un panneau dédié permet de voir les sites enregistrés et de réinitialiser les règles.
+            </p>
+        </section>
+
+        <section class="section" id="tech">
+            <h2>Ce qu'il y a derrière</h2>
+            <p>
+                L'extension utilise Manifest V3, du JavaScript simple, un script de contenu
+                et <code>chrome.storage.local</code> pour mémoriser vos réglages.
+            </p>
+
+            <h3>Structure du projet</h3>
+<pre><code>platon-cleaner/
+├── manifest.json
+├── background.js
+├── contentScript.js
+├── popup.html
+├── popup.js
+├── options.html
+├── options.js
+└── icons/
+    └── icon128.jpg
+</code></pre>
         </section>
     </main>
 
@@ -227,7 +243,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2025 SINJ_LABUBU. Tous droits réservés.</p>
+            <p>&copy; 2025 SINJ_LABUBU.</p>
             <div class="footer-links">
                 <a href="#">Politique de Confidentialité</a> |
                 <a href="#">Conditions d'Utilisation</a> |
