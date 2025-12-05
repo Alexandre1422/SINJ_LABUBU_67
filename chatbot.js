@@ -86,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
         showTypingIndicator();
 
         try {
-            // Envoyer la requête au serveur Flask
-            const response = await fetch('http://127.0.0.1:5000/api/chat', {
+            // Envoyer la requête à l'API Vercel
+            const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
