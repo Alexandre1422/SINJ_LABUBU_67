@@ -1,0 +1,29 @@
+/* style-middle-image.css */
+
+/* Conteneur pour positionner l'image au milieu à gauche */
+.middle-left-image-container {
+    position: absolute; /* Permet un positionnement précis */
+    top: 50%; /* Commence à 50% de la hauteur du viewport */
+    left: 10%; /* Marge à partir du bord gauche */
+    transform: translateY(-50%); /* Déplace l'élément vers le haut de la moitié de sa propre hauteur pour le centrer parfaitement */
+    z-index: 10; /* Assure que l'image est au-dessus d'autres éléments si nécessaire */
+}
+
+/* Style de l'image elle-même */
+#new-labubu-image {
+    width: 300px; /* Taille de l'image (ajustez si besoin) */
+    height: auto;
+    cursor: grab; /* Indique qu'on peut la "saisir" */
+    transition: transform 0.2s ease-in-out; /* Ajoute une transition pour les effets */
+}
+
+/* Effet de survol */
+#new-labubu-image:hover {
+    transform: scale(1.1); /* L'image grandit légèrement au survol */
+}
+
+/* Classe ajoutée par JavaScript quand on glisse l'image */
+.is-dragging {
+    cursor: grabbing !important;
+    opacity: 0.8;
+}
