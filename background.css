@@ -1,21 +1,24 @@
-/* Conteneur principal (Flexbox) pour centrer et aligner les deux côtés */
+
 #main-container {
     display: flex; 
-    justify-content: flex-start; /* Aligne à gauche */
-    align-items: center; /* Centre verticalement la vidéo dans l'espace disponible */
+    justify-content: flex-start;
+    
+    /* MODIFICATION 1 : On aligne en haut (au lieu de center) */
+    /* Sinon, si ton texte est long, la vidéo va flotter au milieu de la page vide */
+    align-items: flex-start; 
+    
     padding: 20px;
     padding-left: 50px;
     
-    /* --- MODIFICATIONS IMPORTANTES --- */
-    /* On supprime min-height: 100vh qui causait le dépassement */
-    min-height: 0; 
-    
-    /* On utilise flex: 1 car votre body est en display: flex (column) */
-    /* Cela dit au conteneur : "Prends tout l'espace disponible entre le header et le footer" */
+    /* MODIFICATION 2 : On retire la limite de hauteur stricte */
+    /* flex: 1 continue de dire "prends au moins l'espace dispo", 
+       mais height: auto permet d'grandir plus que l'écran */
     flex: 1; 
+    height: auto; 
     
-    /* Empêche le contenu de forcer l'agrandissement s'il est trop grand */
-    overflow: hidden; 
+    /* MODIFICATION 3 : IMPORTANT */
+    /* On change hidden en visible ou on supprime la ligne */
+    overflow: visible; 
 }
 
 /* Styles communs aux deux sections de vidéo */
@@ -349,4 +352,827 @@ footer {
     opacity: 1; /* L'image apparaît */
     /* Ramener l'image à sa position d'origine (la montée) */
     transform: translateY(0); 
+}
+
+
+
+
+/** SMARTPHONE  **/
+        .smartphone {
+            width: 300px;
+            height: 600px;
+            background-color: #000;
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .smartphone::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 25px;
+            background-color: #000;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            border-radius: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background-color: #888888;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(136, 136, 136, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(136, 136, 136, 0.5);
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 18px solid white;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 3px;
+        }
+
+        .screen.active {
+            background-color: #800020;
+        }
+
+        .screen.active .play-button {
+            display: none;
+        }
+
+        .apps-container {
+            display: none;
+            width: 100%;
+            height: 100%;
+            /* On ajoute du padding pour que les icônes ne collent pas aux bords */
+            padding: 0 50px; 
+            box-sizing: border-box;
+            
+            /* ON CHANGE ICI : 2 colonnes au lieu de 3 */
+            grid-template-columns: repeat(2, 1fr); 
+            
+            gap: 20px;
+            
+            /* ON CHANGE ICI : On centre le tout verticalement */
+            align-content: center; 
+        }
+
+        .screen.active .apps-container {
+            display: grid;
+        }
+
+     .app-icon {
+            width: 100%;
+            /* AJOUT : Pour éviter qu'elles soient gigantesques */
+            max-width: 90px; 
+            /* AJOUT : Pour centrer l'icône dans sa case de grille */
+            margin: 0 auto; 
+            
+            aspect-ratio: 1;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .app-icon:hover {
+            transform: scale(0.95);
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .power-button {
+            display: none;
+            position: absolute;
+            top: 1px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            z-index: 5;
+        }
+
+        .screen.active .power-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .power-button::before {
+            content: '⏻';
+            color: white;
+            font-size: 24px;
+        }
+
+        .screen.app-view {
+            background-color: #0a0a2e;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-start;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .screen.app-view .apps-container {
+            display: none;
+        }
+
+        .screen.app-view .power-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-header {
+            display: none;
+            width: 100%;
+            height: 90px;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            border-bottom: 2px solid white;
+            margin-top: 30px;
+            overflow: visible;
+        }
+
+        .screen.app-view .app-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app-header-content {
+            color: white;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+        }
+
+        .stories-container {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            width: 100%;
+            overflow: visible;
+            padding: 0 10px;
+        }
+
+       /* 1. On définit la taille et la forme du cercle */
+.story-circle {
+    width: 65px;  /* Ajuste la taille selon tes besoins */
+    height: 65px;
+    border-radius: 50%; /* C'est ce qui crée le cercle */
+    overflow: hidden;   /* Coupe tout ce qui dépasse du cercle */
+    
+    /* Optionnel : Une bordure comme sur Instagram */
+    border: 2px solid #e1306c; 
+    padding: 2px; /* Espace entre la bordure et l'image */
+}
+
+/* 2. On s'assure que l'image remplit bien le cercle */
+.story-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* LA propriété magique : recadre l'image sans la déformer */
+    border-radius: 50%; /* Pour que l'image suive bien l'arrondi si tu as du padding */
+}
+
+        .story-circle:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-buttons {
+            display: none;
+        }
+
+        .screen.app-view .nav-buttons {
+            display: none;
+        }
+
+        .nav-button {
+            display: none;
+        }
+
+        .posts-container {
+            display: none;
+            width: 100%;
+            flex: 1;
+            overflow: visible;
+            padding: 0;
+        }
+
+        .screen.app-view .posts-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post {
+            width: 100%;
+            background-color: #1a1a3f;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            gap: 10px;
+        }
+
+       .post-avatar {
+    width: 40px;  /* Taille standard pour un header de post (32px à 40px) */
+    height: 40px;
+    border-radius: 50%; /* Rend le div rond */
+    overflow: hidden;   /* Masque tout ce qui dépasse du rond */
+    flex-shrink: 0;     /* Empêche l'avatar de s'écraser si le texte à côté est long */
+}
+
+.post-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* L'image remplit le rond parfaitement */
+}
+
+        .post-user-info {
+            flex: 1;
+        }
+
+        .post-username {
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .post-location {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            margin: 2px 0 0 0;
+        }
+
+        .post-menu {
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 300px;
+            background-color: #2a2a4f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 12px;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 15px;
+            padding: 12px 15px;
+            font-size: 20px;
+        }
+
+        .post-action {
+            cursor: pointer;
+            color: white;
+            transition: transform 0.2s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .post-action:hover {
+            transform: scale(1.2);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.4);
+                opacity: 0.6;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .post-likes {
+            padding: 0 15px;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .post-caption {
+            padding: 0 15px 10px;
+            color: white;
+            font-size: 13px;
+        }
+
+        .post-caption-username {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .post-comments {
+            padding: 0 15px 12px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .post-timestamp {
+            padding: 0 15px 12px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 11px;
+        }
+
+        .screen.app2-view {
+            background-color: #ffffff;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-start;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .screen.app2-view .apps-container {
+            display: none;
+        }
+
+        .screen.app2-view .power-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .screen.app2-view .power-button::before {
+            color: black;
+        }
+
+        .screen.app2-view .play-button {
+            display: none;
+        }
+
+        .screen.app2-view .app-header {
+            display: none;
+        }
+
+        .screen.app2-view .posts-container {
+            display: none;
+        }
+
+        .home-button {
+            display: none;
+            position: absolute;
+            top: 1px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            transition: transform 0.2s ease;
+            z-index: 5;
+        }
+
+        .screen.app-view .home-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .screen.app2-view .home-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+        }
+
+        .home-button:hover {
+            transform: none;
+        }
+
+        .app-title {
+            display: none;
+            width: 100%;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .screen.app2-view .app-title {
+            display: block;
+        }
+
+        .app-title-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 280px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+
+        .modal-message {
+            font-size: 14px;
+            color: #666;
+            margin: 0 0 20px 0;
+            line-height: 1.4;
+        }
+
+        .modal-button {
+            background-color: #007AFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .modal-button:hover {
+            background-color: #0051D5;
+        }
+
+        .products-container {
+            display: none;
+            width: 100%;
+            flex: 1;
+            overflow: visible;
+            padding: 15px;
+            box-sizing: border-box;
+            gap: 15px;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        .screen.app2-view .products-container {
+            display: flex;
+        }
+
+        .product-card {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+        }
+
+        .product-info {
+            padding: 12px;
+        }
+
+        .product-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 5px 0;
+        }
+
+        .product-status {
+            font-size: 11px;
+            color: white;
+            background-color: #ff9500;
+            padding: 2px 6px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .product-status.new {
+            background-color: #34c759;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #007AFF;
+            margin-bottom: 8px;
+        }
+
+        .product-button {
+            width: 100%;
+            padding: 8px;
+            background-color: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .product-button:hover {
+            background-color: #0051D5;
+        }
+
+        #likeModal .modal-icon {
+            font-size: 50px;
+        }
+
+        #likeModal .modal-title {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        #likeModal .modal-message {
+            color: #333;
+        }
+
+
+
+
+
+
+        /* --- STYLE APP 3 (QUIZ) --- */
+        .quiz-container {
+            display: none; /* Caché par défaut */
+            flex-direction: column;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .screen.app3-view {
+            background-color: #d1e7dd; /* Fond Vert Pastel */
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-start;
+        }
+
+        .screen.app3-view .apps-container,
+        .screen.app3-view .play-button,
+        .screen.app3-view .app-header,
+        .screen.app3-view .posts-container,
+        .screen.app3-view .products-container,
+        .screen.app3-view .app-title {
+            display: none; /* On cache tout le reste */
+        }
+
+        .screen.app3-view .quiz-container {
+            display: flex; /* On affiche le quiz */
+        }
+
+        .screen.app3-view .power-button,
+        .screen.app3-view .home-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1a4d2e; /* Boutons vert foncé pour le contraste */
+        }
+
+        .quiz-title {
+            text-align: center;
+            color: #0f5132;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-family: sans-serif;
+        }
+
+        .quiz-item {
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .quiz-question {
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 10px 0;
+            font-size: 14px;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            flex-direction: column; /* Les boutons s'empilent */
+            gap: 10px;
+        }
+
+        .quiz-btn {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #fff;
+            color: #333;
+            transition: 0.2s;
+            text-align: left; /* Texte aligné à gauche pour la lisibilité */
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: normal; /* Autorise le retour à la ligne */
+        }
+
+        .quiz-btn:hover {
+            background-color: #f0f0f0;
+            border-color: #bbb;
+        }
+
+        .quiz-feedback {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            font-size: 13px;
+            font-style: italic;
+            display: none; /* Caché tant qu'on n'a pas répondu */
+            border-left: 4px solid #333;
+        }
+        
+        /* Classe utilitaire pour afficher le feedback */
+        .quiz-feedback.visible {
+            display: block;
+        }
+
+        .quiz-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .quiz-feedback {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+            font-weight: bold;
+            min-height: 15px;
+        }
+
+
+
+        /* --- STYLE OVERLAY PLEIN ÉCRAN --- */
+.fullscreen-overlay {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Fixé par rapport à la fenêtre du navigateur */
+    top: 0;
+    left: 0;
+    width: 100vw; /* 100% de la largeur de vue */
+    height: 100vh; /* 100% de la hauteur de vue */
+    background-color: black;
+    z-index: 9999; /* Très élevé pour passer au-dessus de tout */
+    flex-direction: column;
+}
+
+.fullscreen-overlay.active {
+    display: flex;
+}
+
+.fullscreen-overlay iframe {
+    flex: 1;
+    width: 100%;
+    border: none;
+}
+
+/* CSS DU BOUTON RÉTRO (SANS IMPORT) */
+        .close-game-btn {
+            /* 1. La police "Système" pour imiter le rétro */
+            font-family: "Courier New", Courier, monospace; 
+            font-weight: 900; /* Très gras pour faire "pixel" */
+            text-transform: uppercase; /* Majuscules forcées */
+            letter-spacing: 2px; /* Espacement pour la lisibilité */
+            font-size: 14px;
+
+            /* 2. Le style "Bloc" */
+            background-color: #f2a619; /* Rouge vif Arcade */
+            color: #ffffff;
+            border: 4px solid #000; /* Bordure noire épaisse */
+            border-radius: 0; /* Coins carrés (très important pour le rétro) */
+            padding: 15px 25px;
+            cursor: pointer;
+            
+            /* 3. L'ombre "Dure" pour la 3D (Zéro flou) */
+            box-shadow: 6px 6px 0px #000000; 
+            
+            position: relative;
+            transition: all 0.1s; /* Animation rapide */
+        }
+
+        /* Effet au survol */
+        .close-game-btn:hover {
+            background-color: #ff4444; /* Éclaircissement */
+            color: #ffff00; /* Le texte devient jaune Pac-Man */
+            /* On déplace le bouton légèrement */
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px #000000; /* L'ombre grandit */
+        }
+
+        /* Effet au clic (pression) */
+        .close-game-btn:active {
+            transform: translate(4px, 4px); /* Le bouton s'enfonce */
+            box-shadow: 2px 2px 0px #000000; /* L'ombre rétrécit */
+        }
+
+/* Style de la nouvelle section à droite */
+#right-section {
+    /* "flex: 1" signifie : prends tout l'espace largeur disponible restant */
+    flex: 1; 
+    
+    /* "align-self: stretch" force cette div spécifique à prendre toute la hauteur 
+       du parent, ignorant le "align-items: center" du parent */
+    align-self: stretch; 
+    
+    /* Optionnel : Ajoute un scroll si le contenu dépasse la hauteur de l'écran */
+    overflow-y: auto; 
+    
+    /* Pour que ce soit joli (ajuste selon tes goûts) */
+    margin-left: 20px; /* Espace entre la vidéo et ce contenu */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05); /* Fond transparent léger pour visualiser */
+    border-radius: 10px;
+    color: white; /* Si ton fond de page est sombre */
 }

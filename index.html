@@ -20,15 +20,216 @@
         </div>
         <img id="chat-icon" src="image/logo.jpg" alt="Ouvrir le chat" class="chat-icon">
     </nav>
-    <div id="main-container">
-        <div class="video-section" id="left-section">
-            <video id="static-video" autoplay loop muted>
-                <source src="impact environnemental.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la vidéo statique.
-            </video>
+<div id="main-container">
+    <div class="video-section" id="left-section">
+        <video id="static-video" autoplay loop muted>
+            <source src="impact_environnemental.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo statique.
+        </video>
+    </div>
+
+    <div id="right-section">
+        <div class="smartphone">
+        <div class="screen" id="screen">
+            <div class="power-button" id="powerButton"></div>
+            <div class="home-button" id="homeButton">⌂</div>
+            <div class="app-header">
+                <div class="stories-container">
+                    <div class="story-circle"><img src="image/head.png"></div>
+                    <div class="story-circle"><img src="image/sinj.png"></div>
+                </div>
+            </div>
+            <div class="posts-container">
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-avatar"><img src="image/head.png"></div>
+                        <div class="post-user-info">
+                            <p class="post-username">labubu_du_67</p>
+                        </div>
+                        <div class="post-menu">⋯</div>
+                    </div>
+                    <div class="post-image">
+                        <img src="image/post_insta.png" alt="Post insta" style=" height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="post-actions">
+                        <span class="post-action">❤️</span>
+                    </div>
+                    <div class="post-likes">12 345 likes</div>
+                    <div class="post-caption">
+                        <span class="post-caption-username">labubu_du_67</span>
+                    </div>
+                    <div class="post-timestamp">Il y a 2 heures</div>
+                </div>
+            </div>
+            <div class="products-container">
+                <div class="app-title">
+                    <p class="app-title-text">Le Coin Mobile</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="image/ordi.png" alt="Ordinateur" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-name">Ordinateur Portable 15"</p>
+                        <span class="product-status new">NEUF</span>
+                        <div class="product-price">899€</div>
+                        <button class="product-button">Ajouter au panier</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="image/ordi.png" alt="Ordinateur" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-name">Ordinateur Portable 15"</p>
+                        <span class="product-status">RECONDITIONNÉ</span>
+                        <div class="product-price">599€</div>
+                        <button class="product-button">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+
+ <div class="quiz-container">
+            <h2 class="quiz-title">Quiz Gestion Parc IT 💻</h2>
+            
+            <div class="quiz-item">
+                <p class="quiz-question">1. Quel est le Coût Total de Possession (TCO) réel de notre PC actuel ?</p>
+                <div class="quiz-buttons">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Le TCO réel est bien plus complexe que le seul prix d\'achat.')">A. Le prix d'achat initial uniquement.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'C\'est une approche classique mais incomplète, il manque la productivité.')">B. Prix + Énergie + Maintenance.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true, 'Le TCO réel est souvent 4 à 5 fois le prix d\'achat sur 4 ans. C\'est l\'indicateur clé.')">C. Prix + Maintenance + Coût caché de la perte de productivité.</button>
+                </div>
+                <p class="quiz-feedback"></p>
+            </div>
+
+            <div class="quiz-item">
+                <p class="quiz-question">2. Quel est l'âge optimal pour le renouvellement d'un PC ?</p>
+                <div class="quiz-buttons">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Trop coûteux et impact environnemental trop lourd.')">A. Tous les 2 ans.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true, 'Cela maximise la valeur tout en évitant l\'explosion des pannes (souvent après 4 ans).')">B. Tous les 4-5 ans, avec maintenance préventive.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Dangereux : les coûts de maintenance explosent et le service est interrompu.')">C. Quand il ne démarre plus (panne).</button>
+                </div>
+                <p class="quiz-feedback"></p>
+            </div>
+
+            <div class="quiz-item">
+                <p class="quiz-question">3. Comment maîtriser le coût de l'assistance technique ?</p>
+                <div class="quiz-buttons">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Souvent cher et entraîne une perte de contrôle.')">A. Externaliser totalement le support.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Engendre des coûts salariaux fixes élevés.')">B. Avoir une équipe interne dédiée.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true, 'Réduire la complexité du parc et donner de l\'autonomie aux utilisateurs fait chuter le nombre d\'appels.')">C. Standardiser le parc et former à l'auto-dépannage.</button>
+                </div>
+                <p class="quiz-feedback"></p>
+            </div>
+
+            <div class="quiz-item">
+                <p class="quiz-question">4. Où se situe l'impact écologique majeur d'un nouveau PC ?</p>
+                <div class="quiz-buttons">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'L\'usage représente une part mineure comparée à la fabrication.')">A. Consommation d'énergie (usage).</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Le transport a un impact modéré.')">B. Le transport.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true, 'La fabrication représente +90% de l\'impact. La stratégie est donc la longévité.')">C. Extraction des matières et fabrication.</button>
+                </div>
+                <p class="quiz-feedback"></p>
+            </div>
+
+            <div class="quiz-item">
+                <p class="quiz-question">5. Comment respecter la nouvelle obligation de réemploi (Loi AGEC) ?</p>
+                <div class="quiz-buttons">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Complexe légalement et fiscalement.')">A. Vendre aux salariés ou élèves.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Le recyclage coûte cher et détruit de la valeur.')">B. Passer par la filière DEEE (recyclage).</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true, 'Satisfait l\'obligation légale (50% en 2025) et réduit l\'empreinte carbone.')">C. Céder à l'Économie Sociale et Solidaire (ESS).</button>
+                </div>
+                <p class="quiz-feedback"></p>
+            </div>
+
+            <div class="quiz-item">
+                <p class="quiz-question">6. Quelle est la meilleure approche pour l'achat de nouveaux PC ?</p>
+                <div class="quiz-buttons">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Risque de faible durabilité et coûts cachés élevés.')">A. Acheter le moins cher possible.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Surcoût inutile et surdimensionnement.')">B. Acheter les modèles les plus puissants.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true, 'Un PC plus cher mais qui dure 5 ans au lieu de 3 est plus économique au final.')">C. Prioriser le TCO, la réparabilité et la longévité.</button>
+                </div>
+                <p class="quiz-feedback"></p>
+            </div>
+
+            <div class="quiz-item">
+                <p class="quiz-question">7. Comment gérer l'effacement des données des anciens disques durs ?</p>
+                <div class="quiz-buttons">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Dangereux : les données sont souvent récupérables.')">A. Formater simplement les disques.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Coûteux et désastreux écologiquement (empêche le réemploi).')">B. Destruction physique.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true, 'Seule méthode pour conformité RGPD + permettre le réemploi du matériel.')">C. Logiciel de blanchiment certifié.</button>
+                </div>
+                <p class="quiz-feedback"></p>
+            </div>
+
+            <div class="quiz-item">
+                <p class="quiz-question">8. Comment financer la transition vers des PC plus durables ?</p>
+                <div class="quiz-buttons">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Difficile à obtenir en une fois (CAPEX).')">A. Demander une augmentation de budget.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true, 'Transforme l\'investissement en fonctionnement (OPEX) et lisse les dépenses.')">B. Location Longue Durée (LLD).</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Non viable à long terme.')">C. Réduire un autre budget.</button>
+                </div>
+                <p class="quiz-feedback"></p>
+            </div>
+
+            <div class="quiz-item">
+                <p class="quiz-question">9. Comment éviter le surdimensionnement du matériel ?</p>
+                <div class="quiz-buttons">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Trop cher et inutile pour la bureautique.')">A. Acheter uniquement des PC Gaming.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false, 'Risque d\'hétérogénéité du parc et de demandes injustifiées.')">B. Laisser les utilisateurs choisir.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true, 'On n\'achète pas une Ferrari pour la ville. Optimise coût et consommation.')">C. Définir des profils d'usage standardisés.</button>
+                </div>
+                <p class="quiz-feedback"></p>
+            </div>
+
+        </div>
+
+
+            <div class="play-button" id="playButton"></div>
+            <div class="apps-container">
+         <div class="app-icon" id="firstApp" style="background-color: #5894ab; display:flex; justify-content:center; align-items:center; font-size:24px;">📸</div>
+<div class="app-icon" id="secondApp" style="background-color: #ffffff; display:flex; justify-content:center; align-items:center; font-size:24px;">💻</div>
+<div class="app-icon" id="thirdApp" style="background-color: #76b35f; display:flex; justify-content:center; align-items:center; font-size:24px;">❓</div>
+<div class="app-icon" id="fourthApp" style="background-color: #c3a63d; display:flex; justify-content:center; align-items:center; font-size:24px;">👾</div>          
+            </div>
+        </div>
+        
+    </div>
+<div id="fullScreenPacman" class="fullscreen-overlay">
+    <button id="closePacman" class="close-game-btn">❌ Quitter le jeu</button>
+    <iframe id="pacmanFrame" src="" title="Pacman Fullscreen"></iframe>
+</div>
+    <div class="modal" id="newModal">
+        <div class="modal-content">
+            <div class="modal-icon">💻</div>
+            <p class="modal-title">Ordinateur Neuf</p>
+            <p class="modal-message">Avant d'acheter du neuf, pense au reconditionné : moins cher, plus écologique et tout aussi performant.</p>
+            <button class="modal-button" onclick="closeModal()">Fermer</button>
         </div>
     </div>
 
+    <div class="modal" id="refurbModal">
+        <div class="modal-content">
+            <div class="modal-icon">🔄</div>
+            <p class="modal-title">Ordinateur Reconditionné</p>
+            <p class="modal-message">Excellent choix ! Tu économises de l'argent, tu prolonges la vie d'un appareil et tu réduis l'impact écologique.</p>
+            <button class="modal-button" onclick="closeModal()">Fermer</button>
+        </div>
+    </div>
+
+    <div class="modal" id="likeModal">
+        <div class="modal-content">
+            <div class="modal-icon">🚨</div>
+            <p class="modal-title">HALTE !</p>
+            <p class="modal-message">Avez-vous vérifié la source de l'info ? Un "J'aime" ou un partage sans vérification peut propager une fausse nouvelle. Réfléchissez avant de réagir.</p>
+            <button class="modal-button" onclick="closeLikeModal()">Fermer</button>
+        </div>
+    </div>
+
+        </div>
+</div>
+
+    
     <!-- Bouton flottant pour ouvrir le chatbot -->
     <button id="chatbot-floating-btn" title="Assistant SINJ n°67B32 - IA Quantique">
         <img src="image/labubu_singe_pour_un_bouton_pour_un_chatbot.jpeg" alt="Chat avec l'Assistant">
@@ -63,5 +264,6 @@
     <script src="interactivity.js"></script>
     <script src="chatbot.js"></script>
     <script src="video.js"></script>
+    <script src="smartphone.js"></script>
 </body>
 </html>
