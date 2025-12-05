@@ -1,0 +1,273 @@
+
+
+/* Style de la barre de navigation */
+.navbar {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    justify-content: space-between; /* Espace les éléments aux extrémités */
+    align-items: center; /* Centre les éléments verticalement */
+    background-color: #6DB5E7; /* COULEUR BLEU CIEL */
+    color: white;
+    padding: 12px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour l'effet de barre */
+}
+
+/* Style du titre (gauche) */
+.nav-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Styles des liens (centre) */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1em;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Style de l'icône de chat (image à l'extrémité droite) */
+.chat-icon {
+    width: 60px; /* Taille de l'image */
+    height: 60px;
+    cursor: pointer; /* Indique que l'élément est cliquable */
+    margin-left: 20px; /* Pour séparer l'image des autres liens */
+}
+
+/* Style pour le corps de la page (juste pour la lisibilité) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+
+/* --- Styles de la Fleur Animée (NOUVEAU) --- */
+
+
+/* --- Styles de la Fleur Animée --- */
+.flower-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.animated-flower {
+    width: 80px;
+    height: 80px;
+    /* L'animation est toujours appliquée */
+    animation: rotate-flower 2s linear infinite; /* Durée réduite à 2s pour une rotation plus rapide */
+}
+
+/* DÉFINITION DE LA KEYFRAME */
+@keyframes rotate-flower {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Style de base pour le pied de page */
+footer {
+    background-color: #333; /* Couleur de fond sombre pour le contraste */
+    color: #fff; /* Texte blanc */
+    padding: 20px 0; /* Espacement intérieur haut et bas */
+    text-align: center; /* Centrer le contenu */
+    width: 100%; /* S'assurer qu'il prend toute la largeur */
+    /* Ces propriétés assurent qu'il reste en bas de la page, même si le contenu est court */
+    position: relative; /* Position relative par défaut */
+    margin-top: 50px; /* Ajouter un peu de marge au-dessus (ajustez si besoin) */
+}
+
+/* Contenu du pied de page pour le centrage */
+.footer-content {
+    max-width: 1200px; /* Limiter la largeur du contenu (comme le reste du site) */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Style des liens dans le pied de page */
+.footer-links a {
+    color: #fff; /* Liens blancs */
+    text-decoration: none; /* Supprimer le soulignement */
+    margin: 0 10px; /* Espacement entre les liens */
+    transition: color 0.3s ease; /* Transition douce pour l'effet de survol */
+}
+
+/* Effet de survol pour les liens */
+.footer-links a:hover {
+    color: #007bff; /* Changer la couleur au survol (bleu, par exemple) */
+}
+
+/* Espacement pour les liens */
+.footer-links {
+    margin-top: 10px;
+}
+
+/* Style pour le symbole de copyright */
+footer p {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+/* 1. Rendre le corps de la page flexible et prendre toute la hauteur de la fenêtre */
+html, body {
+    height: 100%; /* Important pour que le corps s'étende */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex; /* Active le modèle flexbox */
+    flex-direction: column; /* Organise les éléments verticalement (navbar, contenu, footer) */
+}
+
+/* 2. Créer une zone de contenu qui s'étend pour pousser le footer vers le bas */
+/* J'utilise un sélecteur générique pour cibler le contenu entre la nav et le footer */
+/* Si vous avez un div principal autour de votre contenu, remplacez "div" par la classe/ID correspondante. */
+.flower-container { 
+    /* Ce sélecteur cible le div qui contient la fleur. Ajoutez-le à d'autres conteneurs de contenu. */
+    flex-grow: 1; /* C'est la clé : ce div prendra tout l'espace disponible */
+}
+
+/* 3. Le style du pied de page que nous avons déjà, légèrement ajusté */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    /* Retirez position: relative et margin-top si vous utilisez flex-grow sur le contenu */
+}
+
+/* ... le reste de votre style footer (footer-content, footer-links) ... */
+
+/* Style de base des liens de navigation */
+.nav-links a {
+    /* Nouveau texte */
+    text-transform: uppercase; /* Texte en majuscules */
+    letter-spacing: 1.5px; /* Petit espacement entre les lettres */
+
+    /* Apparence générale */
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 8px 15px; /* Augmenter le padding pour l'effet de bouton */
+    font-weight: 600;
+
+    /* Base de l'animation */
+    border: 2px solid transparent; /* Bordure transparente par défaut */
+    border-radius: 4px; /* Coins légèrement arrondis */
+    transition: 
+        color 0.4s ease, 
+        background-color 0.4s ease, 
+        box-shadow 0.4s ease; /* Animer tout doucement */
+}
+
+/* État au survol (Animation "Glow") */
+.nav-links a:hover {
+    color: #000; /* Texte devient noir ou une couleur contrastante */
+    background-color: #4dc4ff; /* Couleur de fond vive au survol (Bleu Ciel) */
+    
+    /* L'effet de "Glow" ou "Néon" */
+    box-shadow: 
+        0 0 5px #4dc4ff, /* Ombre légère */
+        0 0 15px #4dc4ff, /* Ombre moyenne */
+        0 0 30px #4dc4ff; /* Ombre forte pour l'effet de brillance */
+
+    /* Optionnel : changer légèrement la bordure */
+    border: 2px solid #fff; 
+}
+
+/* --- Styles pour l'Image Clignotante en Bas --- */
+
+
+/* --- Styles pour les liens de navigation (Animation Glow) --- */
+
+.nav-links a {
+    text-transform: uppercase;
+    letter-spacing: 1.5px; 
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 8px 15px; 
+    font-weight: 600;
+    border: 2px solid transparent; 
+    border-radius: 4px; 
+    transition: 
+        color 0.4s ease, 
+        background-color 0.4s ease, 
+        box-shadow 0.4s ease;
+}
+
+.nav-links a:hover {
+    color: #000;
+    background-color: #4dc4ff;
+    box-shadow: 
+        0 0 5px #4dc4ff,
+        0 0 15px #4dc4ff,
+        0 0 30px #4dc4ff;
+    border: 2px solid #fff; 
+}
+
+/* --- Styles pour le Pied de Page (Footer) --- */
+/* Assurez-vous d'avoir les styles du sticky footer si vous voulez qu'il reste en bas de la page, sinon utilisez le style de base fourni précédemment. */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    
+    /* Assurez-vous qu'il est positionné et lui donner un z-index élevé */
+    position: relative; /* Positionnement nécessaire pour que z-index fonctionne */
+    z-index: 200; /* Valeur élevée pour être DEVANT l'image */
+}
+/* ... autres styles footer-content, footer-links ... */
+
+/* --- Styles pour l'Image Clignotante en Bas (Effet de Montée) --- */
+
+.flash-image {
+    /* Positionnement fixe en bas à gauche de la fenêtre */
+    position: fixed;
+    bottom: 80px; 
+    left: 20px;
+    
+    /* Taille de l'image (ajustez selon vos besoins) */
+    width: 60px; 
+    height: auto;
+    
+    z-index: 100;
+    cursor: pointer;
+    
+    /* --- Base de l'Effet de Montée (Slide-Up) --- */
+    
+    /* Masquer l'image par défaut */
+    opacity: 0; 
+    
+    /* Déplacer l'image 100px plus bas que sa position finale */
+    /* L'axe Y est l'axe vertical. Une valeur positive va vers le bas. */
+    transform: translateY(100px); 
+    
+    /* Transition pour l'animation */
+    transition: 
+        opacity 0.4s ease-out, 
+        transform 0.4s ease-out; 
+}
+
+/* Classe CSS qui sera ajoutée par JavaScript pour l'effet visible */
+.is-visible-slide {
+    opacity: 1; /* L'image apparaît */
+    /* Ramener l'image à sa position d'origine (la montée) */
+    transform: translateY(0); 
+}
