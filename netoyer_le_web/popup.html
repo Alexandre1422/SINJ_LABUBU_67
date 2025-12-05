@@ -1,28 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>Dark Rounded Popup</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Platon Cleaner</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 10px;
+      min-width: 230px;
+    }
+    h1 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    button {
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 6px;
+    }
+    .section-title {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-  <div id="popup-container">
-    <div class="top-bar">
-      <h1 class="extension-title">Web Condom</h1>
-    </div>
+  <h1>Platon Cleaner</h1>
 
-    <div class="controls-area">
-      <button class="bar-btn">ADD</button>
-      <button class="bar-btn">REMOVE</button>
+  <div class="section-title">Page actuelle</div>
+  <button id="editModeBtn">Activer le mode nettoyage</button>
+  <button id="toggleSiteBtn">Désactiver sur ce site</button>
+  <button id="resetSiteBtn">Réinitialiser ce site</button>
 
-      <div class="switch-contrainer">
-        <span class="switch-label">TURN ON/OFF</span>
-        <label class="switch">
-            <input type="checkbox" id="featureToggle">
-            <span class="slider"></span>
-        </label>
-    </div>
-    </div>
-  </div>
+  <div class="section-title">Global</div>
+  <button id="toggleGlobalBtn">Activer le mode avant / après global</button>
+  <button id="resetAllBtn">Tout réinitialiser</button>
+  <button id="showRulesBtn">Panneau de gestion</button>
 
   <script src="popup.js"></script>
 </body>
