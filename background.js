@@ -1,77 +1,84 @@
-
-
 document.addEventListener('DOMContentLoaded', function() {
-    const chatIcon = document.getElementById('chat-icon');
-    const rotatingFlower = document.getElementById('rotating-flower');
     
-    // --- Gestion du Chat (Inchanggée) ---
-    if (chatIcon) {
-        chatIcon.addEventListener('click', function() {
-            alert("L'icône de chat a été cliquée ! Le script fonctionne.");
-            this.style.border = '2px solid navy';
-        });
-    }
+    // --- GESTION FLEURS TOURNANTES (MULTI-FLEURS) ---
+    // On sélectionne TOUTES les images qui ont la classe "animated-flower"
+    const allFlowers = document.querySelectorAll('.animated-flower');
 
-    // --- Gestion de l'Animation de la Fleur (NOUVEAU) ---
-    if (rotatingFlower) {
-        // Liste des images de fleurs disponibles
+    // On vérifie qu'on a bien trouvé des fleurs
+    if (allFlowers.length > 0) {
         const flowerImages = [
-            'image/flower1.png',
-            'image/flower2.png',
-            'image/flower3.png'
-            // Vous pouvez ajouter d'autres images ici (ex: 'flower4.png')
+            './image/flower1.png',
+            './image/flower2.png',
+            './image/flower3.png'
         ];
         
         let currentImageIndex = 0;
         
-        // Fonction qui change l'image
         function changeFlowerImage() {
-            // Passe à l'image suivante
+            // Calcul de l'index suivant
             currentImageIndex = (currentImageIndex + 1) % flowerImages.length;
             
-            // Met à jour l'attribut 'src' de l'image
-            rotatingFlower.src = flowerImages[currentImageIndex];
-            
-            console.log("Image changée pour : " + rotatingFlower.src);
+            // On boucle sur CHAQUE fleur trouvée pour changer son image
+            allFlowers.forEach(flower => {
+                flower.src = flowerImages[currentImageIndex];
+            });
         }
         
-        // Exécute la fonction 'changeFlowerImage' toutes les 2000 millisecondes (2 secondes).
-        // Cela correspond à la durée de l'animation CSS 'rotate-flower 2s'.
+        // Change les images toutes les 3 secondes
         setInterval(changeFlowerImage, 3000);
-    } else {
-        console.error("Erreur: L'élément avec l'ID 'rotating-flower' n'a pas été trouvé.");
     }
-});
 
-// --- Code à ajouter à background.js ---
-// --- Code à modifier dans background.js ---
-
-// --- Code à modifier dans background.js ---
-
-document.addEventListener('DOMContentLoaded', () => {
-    
+    // ... (Le reste de ton code pour le snake et l'image clignotante reste inchangé) ...
+    // --- GESTION IMAGE CLIGNOTANTE & LANCEMENT SNAKE ---
     const flashImageBottom = document.getElementById('flash-image-bottom');
-    if (!flashImageBottom) return; 
+    // ... etc ...
+    let flashInterval;
 
-    function toggleFlashImage() {
+    if (flashImageBottom) {
         
-        // 1. Afficher l'image avec l'effet de "montée" (pendant 2 secondes)
-        // Ajout de la classe qui active opacity: 1 et transform: translateY(0)
-        flashImageBottom.classList.add('is-visible-slide');
-        
-        // 2. Planifier la disparition après 2 secondes
-        setTimeout(() => {
-            // Retirer la classe pour la masquer et la déplacer à nouveau vers le bas
-            flashImageBottom.classList.remove('is-visible-slide');
-        }, 2000); // 2000 ms = 2 secondes d'affichage
+        // 1. Fonction pour l'animation de clignotement (Slide Up)
+        function toggleFlashImage() {
+            flashImageBottom.classList.add('is-visible-slide');
+            setTimeout(() => {
+                // On ne retire la classe que si le bouton est censé être visible (jeu pas lancé)
+                if (flashImageBottom.style.display !== 'none') {
+                    flashImageBottom.classList.remove('is-visible-slide');
+                }
+            }, 2000); 
+        }
+
+        // On lance l'animation
+        toggleFlashImage();
+        flashInterval = setInterval(toggleFlashImage, 5000);
+
+        // 2. CLICK : Lancer le jeu
+        flashImageBottom.addEventListener('click', () => {
+            console.log("Lancement du Snake !");
+            
+            // a) Masquer le bouton
+            flashImageBottom.style.display = 'none';
+            flashImageBottom.classList.remove('is-visible-slide'); // Reset animation
+            
+            // b) Arrêter l'intervalle de clignotement pour économiser des ressources
+            clearInterval(flashInterval);
+
+            // c) Appeler la fonction globale définie dans snake.js
+            if (window.startSnakeFromBottom) {
+                window.startSnakeFromBottom();
+            }
+        });
+
+        // 3. ÉCOUTER LA FIN DU JEU (Game Over)
+        document.addEventListener('snake-game-over', () => {
+            console.log("Game Over reçu - Réapparition du bouton");
+            
+            // a) Réafficher le bouton
+            flashImageBottom.style.display = 'block';
+            
+            // b) Relancer l'intervalle de clignotement
+            toggleFlashImage(); // Le faire apparaître tout de suite
+            if (flashInterval) clearInterval(flashInterval);
+            flashInterval = setInterval(toggleFlashImage, 5000);
+        });
     }
-
-    // Démarrer le cycle
-    toggleFlashImage(); 
-
-    // Répéter le cycle toutes les 5 secondes (2s affiché + 3s masqué = 5s)
-    setInterval(toggleFlashImage, 5000); 
-
-    // ... (votre code pour la fleur tournante si nécessaire) ...
 });
-
