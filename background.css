@@ -1,4 +1,75 @@
+/* Conteneur principal (Flexbox) pour centrer et aligner les deux côtés */
+#main-container {
+    display: flex; 
+    justify-content: flex-start; /* Aligne à gauche */
+    align-items: center; /* Centre verticalement la vidéo dans l'espace disponible */
+    padding: 20px;
+    padding-left: 50px;
+    
+    /* --- MODIFICATIONS IMPORTANTES --- */
+    /* On supprime min-height: 100vh qui causait le dépassement */
+    min-height: 0; 
+    
+    /* On utilise flex: 1 car votre body est en display: flex (column) */
+    /* Cela dit au conteneur : "Prends tout l'espace disponible entre le header et le footer" */
+    flex: 1; 
+    
+    /* Empêche le contenu de forcer l'agrandissement s'il est trop grand */
+    overflow: hidden; 
+}
 
+/* Styles communs aux deux sections de vidéo */
+.video-section {
+    /* --- TAILLE ET FORMAT --- */
+    width: auto; /* La largeur s'adapte automatiquement */
+    height: auto; /* La hauteur s'adapte au format de la vidéo */
+    
+    /* C'est la ligne magique : la vidéo ne dépassera jamais 75% de la hauteur de l'écran */
+    /* Cela laisse de la place pour le header et le footer */
+    max-height: 70vh;
+    /* --- STYLE --- */
+    margin: 0 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: black;
+    
+    /* Flexbox interne pour supprimer les espaces fantômes sous la vidéo */
+    display: flex; 
+}
+
+#static-video {
+    /* La vidéo prend toute la place DISPONIBLE dans le cadre limité ci-dessus */
+    width: auto; 
+    height: 100%; 
+    max-height: 75vh; /* Sécurité supplémentaire */
+    display: block;
+}
+
+/* --- Styles spécifiques au Carrousel (Section Droite) --- */
+
+#carousel-container {
+    position: relative; 
+    width: 100%; /* S'adapte à la largeur du conteneur (300px) */
+    height: 100%; /* FIX: S'adapte à la hauteur du conteneur (300px) */
+    /* Suppression de padding-top: 56.25%; et height: 0; */
+}
+
+.carousel-video {
+    /* Superpose toutes les vidéos */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* FIX: Prendre toute la hauteur (300px) */
+    object-fit: cover; 
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out; 
+}
+
+.carousel-video.active {
+    /* Affiche la vidéo active */
+    opacity: 1;
+}
 
 /* Style de la barre de navigation */
 .navbar {

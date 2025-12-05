@@ -19,13 +19,13 @@
         </div>
         <img id="chat-icon" src="image/blue.png" alt="Ouvrir le chat" class="chat-icon">
     </nav>
-
-    <div class="middle-left-image-container">
-        <img id="new-labubu-image" src="image/mo.png" alt="Nouvelle image Labubu" class="draggable-image">
-    </div>
-    
-    <div class="flower-container">
-        <img src="./image/flower1.png" alt="Fleur animée" class="animated-flower" id="rotating-flower">
+    <div id="main-container">
+        <div class="video-section" id="left-section">
+            <video id="static-video" autoplay loop muted>
+                <source src="impact environnemental.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la vidéo statique.
+            </video>
+        </div>
     </div>
 
     <!-- Bouton flottant pour ouvrir le chatbot -->
@@ -61,5 +61,6 @@
     <script src="background.js"></script>
     <script src="interactivity.js"></script>
     <script src="chatbot.js"></script>
+    <script src="video.js"></script>
 </body>
 </html>

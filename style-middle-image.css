@@ -3,7 +3,7 @@
 /* Conteneur pour positionner l'image au milieu à gauche */
 .middle-left-image-container {
     position: absolute; /* Permet un positionnement précis */
-    top: 50%; /* Commence à 50% de la hauteur du viewport */
+    top: 70%; /* Commence à 50% de la hauteur du viewport */
     left: 10%; /* Marge à partir du bord gauche */
     transform: translateY(-50%); /* Déplace l'élément vers le haut de la moitié de sa propre hauteur pour le centrer parfaitement */
     z-index: 10; /* Assure que l'image est au-dessus d'autres éléments si nécessaire */
