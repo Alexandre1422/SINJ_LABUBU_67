@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINJ_LABUBU</title>
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="style-middle-image.css">
+    <link rel="stylesheet" href="chatbot.css"> 
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-title">SINJ_LABUBU</div>
+        <div class="nav-links">
+            <a href="#">Projets</a>
+            <a href="#">Solutions</a>
+            <a href="#">Contactez-nous</a>
+        </div>
+        <img id="chat-icon" src="image/blue.png" alt="Ouvrir le chat" class="chat-icon">
+    </nav>
+
+    <div class="middle-left-image-container">
+        <img id="new-labubu-image" src="image/mo.png" alt="Nouvelle image Labubu" class="draggable-image">
+    </div>
+    
+    <div class="flower-container">
+        <img src="flower1.png" alt="Fleur animée" class="animated-flower" id="rotating-flower">
+    </div>
+
+    <img id="flash-image-bottom" src="image/labubu.png" alt="Image clignotante" class="flash-image">
+    
+    <!-- Bouton flottant pour ouvrir le chatbot -->
+    <button id="chatbot-floating-btn" title="Assistant SINJ n°67B32 - IA Quantique">
+        <img src="image/labubu_singe_pour_un_bouton_pour_un_chatbot.jpeg" alt="Chat avec l'Assistant">
+    </button>
+    
+    <!-- Interface du Chatbot -->
+    <div id="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Assistant SINJ n°67B32 MULTI MODAL NEURONAL QUANTUM QUANTIC</h3>
+            <button id="close-chatbot" class="close-btn">&times;</button>
+        </div>
+        <div class="chatbot-messages">
+            <!-- Les messages apparaîtront ici -->
+            <div class="typing-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbot-input" placeholder="Tapez votre message...">
+            <button id="send-btn">Envoyer</button>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 SINJ_LABUBU. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="#">Politique de Confidentialité</a> |
+                <a href="#">Conditions d'Utilisation</a> |
+                <a href="#">Plan du Site</a>
+            </div>
+        </div>
+    </footer>
+    <script src="background.js"></script>
+    <script src="interactivity.js"></script>
+    <script src="chatbot.js"></script> 
+</body>
+</html>
