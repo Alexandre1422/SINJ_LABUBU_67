@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Équipe GitHub & Snake</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="github.css"> 
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-title">SINJ_LABUBU</div>
+        <div class="nav-links">
+            <a href="#">Projets</a>
+            <a href="#">Solutions</a>
+            <a href="./github.html">Nos Githubs</a>
+            <a href="./web_condom.html">Ad-blocker</a>
+        </div>
+        <img id="chat-icon" src="image/blue.png" alt="Ouvrir le chat" class="chat-icon">
+    </nav>
+
+    <img id="flash-image-bottom" src="image/labubu.png" alt="Image clignotante" class="flash-image">
+    
+    
+    <canvas id="snake-canvas"></canvas>
+
+    <div class="deadly-flower flower-small" style="top: 10%; left: 5%;">
+        <img src="./image/flower1.png" alt="Fleur animée" class="animated-flower">
+    </div>
+    <div class="deadly-flower flower-large" style="top: 50%; right: 5%; transform: translateY(-50%);">
+        <img src="./image/flower1.png" alt="Fleur animée" class="animated-flower">
+    </div>
+    <div class="deadly-flower flower-medium" style="bottom: 5%; left: 40%;">
+        <img src="./image/flower1.png" alt="Fleur animée" class="animated-flower">
+    </div>
+
+    <div class="main-container">
+        <h1>L'équipe SINJ_LABUBU_67</h1>
+
+        <div class="team-grid">
+            <div class="github-card">
+                <div class="avatar"></div>
+                <h3>Alexandre Couté</h3>
+                <p>Chef d'équipe et développeur "Hidden Snake"</p>
+                <a href="#" class="btn-github"><i class="fab fa-github"></i> Profil</a>
+            </div>
+            
+            <div class="github-card">
+                <div class="avatar"></div>
+                <h3>Saad Madi-Soilihi</h3>
+                <p>Développeur "Défi national"</p>
+                <a href="#" class="btn-github"><i class="fab fa-github"></i> Profil</a>
+            </div>
+
+            <div class="github-card">
+                <div class="avatar"></div>
+                <h3>Hamza Echerarhi</h3>
+                <p>Développeur "Nettoyez le web comme VOUS l’entendez !"</p>
+                <a href="https://github.com/ECHERARHIHAMZA" class="btn-github"><i class="fab fa-github"></i> Profil</a>
+            </div>
+
+            <div class="github-card">
+                <div class="avatar"></div>
+                <h3>Adrien Failler</h3>
+                <p>Développeur "Chat'bruti"</p>
+                <a href="https://github.com/AdrienFai2lr" class="btn-github"><i class="fab fa-github"></i> Profil</a>
+            </div>
+
+            <div class="github-card">
+                <div class="avatar"></div>
+                <h3>Siham Arab</h3>
+                <p>Développeuse "On veut du gros pixel !"</p>
+                <a href="#" class="btn-github"><i class="fab fa-github"></i> Profil</a>
+            </div>
+
+            <div class="github-card">
+                <div class="avatar"></div>
+                <h3>Hamza Aarab</h3>
+                <p>Développeur "L'ergonomie : simplifier pour mieux vivre."</p>
+                <a href="#" class="btn-github"><i class="fab fa-github"></i> Profil</a>
+            </div>
+
+            <div class="github-card">
+                <div class="avatar"></div>
+                <h3>Réda Lahdoudi</h3>
+                <p>Développeur "Défi national"</p>
+                <a href="#" class="btn-github"><i class="fab fa-github"></i> Profil</a>
+            </div>
+
+            <div class="github-card">
+                <div class="avatar"></div>
+                <h3>Soufiane Ouik</h3>
+                <p>Escape Artist</p>
+                <a href="#" class="btn-github"><i class="fab fa-github"></i> Profil</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 SINJ_LABUBU_67. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="#">Politique de Confidentialité</a> |
+                <a href="#">Conditions d'Utilisation</a> |
+                <a href="#">Plan du Site</a>
+            </div>
+        </div>
+    </footer>
+    <script src="snake.js"></script>
+    <script src="background.js"></script>
+</body>
+</html>

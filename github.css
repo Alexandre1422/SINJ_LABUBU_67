@@ -1,0 +1,119 @@
+
+/* --- LE SNAKE (ARRIÈRE-PLAN) --- */
+#snake-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* --- CONTENEUR PRINCIPAL --- */
+/* Utilisation de Flexbox pour centrer verticalement le contenu dans l'écran */
+.main-container {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 1200px;
+    height: 100vh; /* Prend toute la hauteur */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre tout verticalement */
+    padding: 0; /* Pas de padding global inutile */
+}
+
+
+/* --- GRILLE DES 8 GITHUBS --- */
+.team-grid {
+    display: grid;
+    /* Force 4 colonnes pour avoir 2 lignes de 4 cartes (8 total) */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px; /* Espacement réduit entre les cartes */
+}
+
+/* --- CARTE PROFIL COMPACTE --- */
+.github-card {
+    background: rgba(73, 73, 73, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 15px; /* Padding interne réduit de moitié */
+    text-align: center;
+            box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.1);
+            transition: transform 0.3s ease;
+            
+            /* Flex pour bien gérer l'espace interne si besoin */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .github-card:hover {
+            transform: translateY(-5px);
+            background: rgba(119, 119, 119, 0.85);
+        }
+
+        .avatar {
+            width: 50px; /* Avatar réduit (80px -> 50px) */
+            height: 50px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');
+            background-size: cover;
+            border: 2px solid white;
+        }
+
+        .github-card h3 { 
+            margin: 0 0 5px; 
+            color: #333; 
+            font-size: 1rem; /* Texte plus petit */
+        }
+        
+        .github-card p { 
+            margin: 0 0 10px; 
+            color: rgb(255, 255, 255)000; 
+            font-size: 0.8em; /* Description plus petite */
+        }
+
+        .btn-github {
+            display: inline-block;
+            background-color: #333;
+            color: white;
+            padding: 6px 15px; /* Bouton plus fin */
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8em;
+            transition: background 0.2s;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+        .btn-github:hover { background-color: #555; }
+
+        /* --- MEDIA QUERY POUR PETITS ÉCRANS (Optionnel) --- */
+        /* Si l'écran est vraiment trop petit, on passe en 2x4 mais avec scroll */
+        @media (max-width: 900px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            /* Sur mobile, le scroll est inévitable pour 8 cartes, 
+               mais sur desktop/laptop standard, ça tiendra sans scroll. */
+        }
+
+        /* --- LES FLEURS --- */
+        .deadly-flower {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flower-small { width: 80px; height: 80px; font-size: 2rem; }
+        .flower-medium { width: 140px; height: 140px; font-size: 3.6rem; }
+        .flower-large { width: 200px; height: 200px; font-size: 6rem; }
